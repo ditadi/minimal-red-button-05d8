@@ -5,8 +5,7 @@ import 'dotenv/config';
 import cors from 'cors';
 import superjson from 'superjson';
 import { z } from 'zod';
-import { healthCheckSchema, staticPageSchema } from './schema';
-import { getStaticPage } from './handlers/get_static_page';
+import { healthCheckSchema } from './schema';
 import { logPageRequest } from './handlers/log_page_request';
 
 const t = initTRPC.create({
@@ -22,10 +21,6 @@ const appRouter = router({
     .query(() => {
       return { status: 'ok', timestamp: new Date().toISOString() };
     }),
-  
-  getStaticPage: publicProcedure
-    .output(staticPageSchema)
-    .query(() => getStaticPage()),
   
   logPageRequest: publicProcedure
     .input(z.object({

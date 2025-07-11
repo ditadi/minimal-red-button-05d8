@@ -2,8 +2,6 @@
 import { type StaticPage } from '../schema';
 
 export const getStaticPage = async (): Promise<StaticPage> => {
-    // This is a placeholder declaration! Real code should be implemented here.
-    // The goal of this handler is to serve the static HTML page with a centered red button.
     const html = `
     <!DOCTYPE html>
     <html lang="en">
